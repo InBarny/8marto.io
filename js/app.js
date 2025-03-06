@@ -2,7 +2,7 @@
 TweenLite.set("#petals", { perspective:600 })
 TweenLite.set("img", { xPercent:"-50%", yPercent:"-50%" })
 
-var total = 50;
+var total = 80;
 var warp = document.getElementById("petals"),
     w = window.innerWidth,
     h = window.innerHeight;
@@ -25,7 +25,7 @@ function R(min,max) { return min+Math.random() * (max-min) };
 
 /* https://mattboldt.com/typed.js/ */
 var typed = new Typed('#text', {
-    strings: ['Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий.'],
+    strings: ['С днем весенним! Пусть исполнятся мечты, Чтобы было настроенье, И улыбки, и цветы! Чтобы повод был смеяться, и В комплиментах искупаться.'],
     startDelay: 3000,
     typeSpeed: 50,
     backSpeed: 0,
