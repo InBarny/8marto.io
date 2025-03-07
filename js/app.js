@@ -1,8 +1,7 @@
-/* https://greensock.com/gsap */
 TweenLite.set("#petals", { perspective:600 })
 TweenLite.set("img", { xPercent:"-50%", yPercent:"-50%" })
 
-var total = 80;
+var total = 200;
 var warp = document.getElementById("petals"),
     w = window.innerWidth,
     h = window.innerHeight;
@@ -23,9 +22,8 @@ function animm(elm) {
 function R(min,max) { return min+Math.random() * (max-min) };
 
 
-/* https://mattboldt.com/typed.js/ */
 var typed = new Typed('#text', {
-    strings: ['С днем весенним! Пусть исполнятся мечты, Чтобы было настроенье, И улыбки, и цветы! Чтобы повод был смеяться, и В комплиментах искупаться.'],
+    strings: [sessionStorage.getItem('greetingMessage')],
     startDelay: 3000,
     typeSpeed: 50,
     backSpeed: 0,

@@ -14,7 +14,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
 
     <meta name="theme-color" content="#ffffff">
-    <title>Кто вы?</title>
+    <title>С 8 марта!</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <form id="nameForm">
                 <h1 class="title">Введите ваше имя</h1>
                 <div class="input">
-                    <input type="text" id="nameInput" placeholder="Ваше имя" required>
+                    <input type="text" id="nameInput" placeholder="Enter your name" required>
                     <button type="submit">Подтвердить</button>
                 </div>
             </form>
@@ -36,8 +36,23 @@
     <script>
         document.getElementById('nameForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            const name = document.getElementById('nameInput').value;
+            let name = document.getElementById('nameInput').value.trim();
+            let greetingMessage = 'С днем весенним! Пусть исполнятся мечты, Чтобы было настроенье, И улыбки, и цветы! Чтобы повод был смеяться, и В комплиментах искупаться.';
+            if (name.toLowerCase() === "настя") {
+                name = "Мама";
+                greetingMessage = 'Ты — мой лучик света, что растворяет серые тучи. Пусть каждый твой день будет похож на цветущий сад — яркий, полный улыбок🌸. Хоть иногда ты и Злишься все мы тебя понимаем и любим очень очень сильно💖💖💖. Привет! Пока! Люблю тебя💖 С 8 Марта, Мам!🌸🌟💖';
+            } else if (name.toLowerCase() === "лида") {
+                name = "Бабушка";
+                greetingMessage = 'Ты — наше сокровище🌟! достовучесть и доброта в одном сердце💖 Спасибо тебе за заботу о нас, твой теплые и мягкие ручки согревают меня бесконечно💖. Пусть каждый день радует тебя🌸и пусть мы и не кушаем и не слушаем тебя, мы тебя любим и хотим чтобы,💖здоровье было крепким а душа — молодой! С 8 Марта!💖Целую и крепко обнимаю.🌸🌟💖';
+            } else if (name.toLowerCase() === "luminita") {
+                name = "Леля";
+                greetingMessage = 'С 8 Марта! Целую и крепко обнимаю.';
+            } else if (name.toLowerCase() === "kali") {
+                name = "Kalli";
+                greetingMessage = 'Dear Kali! Happy International Women’s Day! 🌸 You’re an incredible blend of strength, love, and grace. Warmest wishes as you prepare to welcome your little miracle! 🌟 May your days be filled with joy, and your journey into motherhood with endless love and smooth moments. Celebrating YOU today and the beautiful new chapter ahead! 💖 Happy 8th of March';
+            }
             sessionStorage.setItem('userName', name);
+            sessionStorage.setItem('greetingMessage', greetingMessage);
             window.location.href = 'pozdrav.html';
         });
     </script>

@@ -4,6 +4,9 @@ body {
     overflow: hidden;
     perspective: 1000px;
     font-family: 'Caveat', cursive;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .dot {
@@ -25,34 +28,33 @@ html, body {
 }
 
 .card {
-    width: 800px;
-    height: 420px;
-    padding: 15px 30px;
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    min-height: 420px;
+    padding: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 1;
+    z-index: -1;
     transform-style: preserve-3d;
-    perspective: 200px;
     opacity: 0;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    perspective: 200px;
     transform: translate3d(-40%, -50%, 0);
     animation: card 1.5s linear 1.5s forwards;
 }
 
 .card-nameForm {
-    width: 500px;
-    height: 500px;
-    padding: 15px 30px;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    padding: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 1;
     perspective: 200px;
     opacity: 0;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     transform: translate3d(-40%, -50%, 0);
     animation: card 0.5s linear 0.5s forwards;
 }
@@ -66,14 +68,41 @@ html, body {
 }
 
 .input {
-    font-size: 40px;
-    width: 500px;
-    margin-top: 100px;
-    margin-left: 100px;
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 2px solid #8047ca;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background: linear-gradient(110deg, #ff6945 0%, #8047ca 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 .title {
-    margin-bottom: 10px;
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1.2;
+    text-align: center;
     background-image: linear-gradient(
         110deg,
         #ff6945 0%,
@@ -82,23 +111,12 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #ff6945;
-    font-size: 80px;
-    line-height: 1;
 }
 
 .text {
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    background-image: linear-gradient(
-        110deg,
-        #333 0%,
-        #ccc 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #333;
-    font-size: 35px;
-    line-height: 1.2;
+    font-size: clamp(1.2rem, 4vw, 1.75rem);
+    padding: 1rem;
+    text-align: center;
 }
 
 .author {
@@ -108,7 +126,6 @@ html, body {
         #8047ca 100%
     );
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     opacity: 0;
     color: #121212;
     font-size: 30px;
@@ -126,6 +143,15 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    .dot {
+        width: 25px;
+        height: 25px;
+    }
+
+    #petals {
+        perspective: 800px;
+    }
+
     .card {
         width: 90%;
         height: auto;
@@ -164,6 +190,17 @@ html, body {
     }
 }
 
+@media (max-height: 500px) and (orientation: landscape) {
+    .card, .card-nameForm {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 480px) {
     .card {
         width: 95%;
@@ -194,5 +231,18 @@ html, body {
 
     .author {
         font-size: 18px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    input[type="text"] {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+    
+    button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
     }
 }
